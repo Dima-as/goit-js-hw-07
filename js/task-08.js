@@ -1,20 +1,22 @@
 const refs = {
-	input: document.querySelector('#controls > input'),
+	input: document.querySelector('#controls', 'input'),
 	renderBtn: document.querySelector('button[data-action="render"]'),
 	destroyBtn: document.querySelector('button[data-action="destroy"]'),
 	boxesContainer: document.querySelector('#boxes'),
 	}
 	
-	function range(count) {
+	function range(counter) {
 		const array = [];
-		for (let i = 0; i < count; i++) {
+		for (let i = 0; i < counter; i+=1) {
 			array.push(i);
 		}
 		return array;
 	}
 	
 	const genRGB = function () {
-		return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`
+		return `rgb(${Math.floor(Math.random() * 255)},
+		 ${Math.floor(Math.random() * 255)},
+		  ${Math.floor(Math.random() * 255)})`
 	}
 	
 	function createBoxes(amount) {
@@ -44,7 +46,5 @@ const refs = {
 	});
 	
 	refs.destroyBtn.addEventListener('click', () => {
-		// refs.boxesContainer.innerHTML = '';
-		// refs.input.value = '';
 		document.location.reload();
 	});
